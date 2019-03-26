@@ -9,23 +9,28 @@ int isIntersect(Vec2 point_on_the_line_u, Vec2 point_on_the_line_v,
 	int count_positive_value = 0;
 
 	//定義域を超える入力に対する処理，エラーとして-1を返す
-	if (point_on_the_line_u.x < -10 || point_on_the_line_u.x>10 || point_on_the_line_u.y < -10 || point_on_the_line_u.y>10) {
+	if (point_on_the_line_u.x <= -10 || point_on_the_line_u.x >= 10
+		|| point_on_the_line_u.y <= -10 || point_on_the_line_u.y >= 10) {
 		std::cout << "Error:out of domain.\n";
 		return -1;
 	}
-	else if (point_on_the_line_v.x < -10 || point_on_the_line_v.x>10 || point_on_the_line_v.y < -10 || point_on_the_line_v.y>10) {
+	else if (point_on_the_line_v.x <= -10 || point_on_the_line_v.x >= 10
+		|| point_on_the_line_v.y <= -10 || point_on_the_line_v.y >= 10) {
 		std::cout << "Error:out of domain.\n";
 		return -1;
 	}
-	else if (vertex_of_triangle_a.x < -10 || vertex_of_triangle_a.x>10 || vertex_of_triangle_a.y < -10 || vertex_of_triangle_a.y>10) {
+	else if (vertex_of_triangle_a.x <= -10 || vertex_of_triangle_a.x >= 10
+		|| vertex_of_triangle_a.y <= -10 || vertex_of_triangle_a.y >= 10) {
 		std::cout << "Error:out of domain.\n";
 		return -1;
 	}
-	else if (vertex_of_triangle_b.x < -10 || vertex_of_triangle_b.x>10 || vertex_of_triangle_b.y < -10 || vertex_of_triangle_b.y>10) {
+	else if (vertex_of_triangle_b.x <= -10 || vertex_of_triangle_b.x >= 10
+		|| vertex_of_triangle_b.y <= -10 || vertex_of_triangle_b.y >= 10) {
 		std::cout << "Error:out of domain.\n";
 		return -1;
 	}
-	else if (vertex_of_triangle_c.x < -10 || vertex_of_triangle_c.x>10 || vertex_of_triangle_c.y < -10 || vertex_of_triangle_c.y>10) {
+	else if (vertex_of_triangle_c.x <= -10 || vertex_of_triangle_c.x >= 10
+		|| vertex_of_triangle_c.y <= -10 || vertex_of_triangle_c.y >= 10) {
 		std::cout << "Error:out of domain.\n";
 		return -1;
 	}
@@ -35,7 +40,9 @@ int isIntersect(Vec2 point_on_the_line_u, Vec2 point_on_the_line_v,
 		std::cout << "Error:the points on the line must be different each other.\n";
 		return -1;
 	}
-	else if (vertex_of_triangle_a == vertex_of_triangle_b || vertex_of_triangle_b == vertex_of_triangle_c, vertex_of_triangle_c == vertex_of_triangle_a) {
+	else if (vertex_of_triangle_a == vertex_of_triangle_b
+		|| vertex_of_triangle_b == vertex_of_triangle_c
+		|| vertex_of_triangle_c == vertex_of_triangle_a) {
 		std::cout << "Error:the triangle vertices must be different from each other.\n";
 		return -1;
 	}
@@ -54,7 +61,9 @@ int isIntersect(Vec2 point_on_the_line_u, Vec2 point_on_the_line_v,
 		return 1;
 	}
 
-	count_positive_value = (bool)(uv_cross_ua > 0) + (bool)(uv_cross_ub > 0) + (bool)(uv_cross_uc > 0);
+	count_positive_value = (bool)(uv_cross_ua > 0)
+		+ (bool)(uv_cross_ub > 0)
+		+ (bool)(uv_cross_uc > 0);
 
 	//3つの外積の中に符号が互いに異なる組があれば交差と判定し，1を返す
 	if (count_positive_value == 2 || count_positive_value == 1) {
@@ -74,7 +83,8 @@ int main()
 
 	std::cout << "Input coordinate(x,y) of first point on the line(-10<x,y<10): \n";
 	std::cin >> point_on_the_line_u;
-	if (point_on_the_line_u.x < -10 || point_on_the_line_u.x>10 || point_on_the_line_u.y < -10 || point_on_the_line_u.y>10) {
+	if (point_on_the_line_u.x <= -10 || point_on_the_line_u.x >= 10
+		|| point_on_the_line_u.y <= -10 || point_on_the_line_u.y >= 10) {
 		std::cout << "Input number in (-10,10).\n";
 		system("pause");
 		return 0;
@@ -82,7 +92,8 @@ int main()
 
 	std::cout << "Input coordinate(x,y) of second point on the line(-10<x,y<10): \n";
 	std::cin >> point_on_the_line_v;
-	if (point_on_the_line_v.x < -10 || point_on_the_line_v.x>10 || point_on_the_line_v.y < -10 || point_on_the_line_v.y>10) {
+	if (point_on_the_line_v.x <= -10 || point_on_the_line_v.x >= 10
+		|| point_on_the_line_v.y <= -10 || point_on_the_line_v.y >= 10) {
 		std::cout << "Error:input number in (-10,10).\n";
 		system("pause");
 		return 0;
@@ -90,7 +101,8 @@ int main()
 
 	std::cout << "Input coordinate(x,y) of first vertex of the triangle(-10<x,y<10): \n";
 	std::cin >> vertex_of_triangle_a;
-	if (vertex_of_triangle_a.x < -10 || vertex_of_triangle_a.x>10 || vertex_of_triangle_a.y < -10 || vertex_of_triangle_a.y>10) {
+	if (vertex_of_triangle_a.x <= -10 || vertex_of_triangle_a.x >= 10
+		|| vertex_of_triangle_a.y <= -10 || vertex_of_triangle_a.y >= 10) {
 		std::cout << "Error:input number in (-10,10).\n";
 		system("pause");
 		return 0;
@@ -98,7 +110,8 @@ int main()
 
 	std::cout << "Input coordinate(x,y) of second vertex of the triangle(-10<x,y<10): \n";
 	std::cin >> vertex_of_triangle_b;
-	if (vertex_of_triangle_b.x < -10 || vertex_of_triangle_b.x>10 || vertex_of_triangle_b.y < -10 || vertex_of_triangle_b.y>10) {
+	if (vertex_of_triangle_b.x <= -10 || vertex_of_triangle_b.x >= 10
+		|| vertex_of_triangle_b.y <= -10 || vertex_of_triangle_b.y >= 10) {
 		std::cout << "Error:input number in (-10,10).\n";
 		system("pause");
 		return 0;
@@ -106,7 +119,8 @@ int main()
 
 	std::cout << "Input coordinate(x,y) of third vertex of the triangle(-10<x,y<10): \n";
 	std::cin >> vertex_of_triangle_c;
-	if (vertex_of_triangle_c.x < -10 || vertex_of_triangle_c.x>10 || vertex_of_triangle_c.y < -10 || vertex_of_triangle_c.y>10) {
+	if (vertex_of_triangle_c.x <= -10 || vertex_of_triangle_c.x >= 10
+		|| vertex_of_triangle_c.y <= -10 || vertex_of_triangle_c.y >= 10) {
 		std::cout << "Error:input number in (-10,10).\n";
 		system("pause");
 		return 0;
